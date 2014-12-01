@@ -234,6 +234,7 @@ for_window [title="Developer Tools - chrome-extension:.*"] floating disable
 #for_window [title="xfce4-notifyd"] position -10 px 0px
 #for_window [title="xfce4-notifyd"] floating enable
 for_window [title="Skype"] floating enable
+for_window [title="Spotify Premium.*"] border pixel 1
 
 ### Auto-started programs ###
 
@@ -269,7 +270,7 @@ bindsym $mod+BackSpace  mode $soundmenu
 
 mode $soundmenu {
     bindsym s         workspace $w7name, exec spotify, mode "default"
-    bindsym p         workspace $w9name, exec pactl load-module module-equalizer-sink, exec pactl load-module module-dbus-protocol, exec pavucontrol, exec qpaeq, mode "default"
+    bindsym p         workspace $w10name, exec pactl load-module module-equalizer-sink, exec pactl load-module module-dbus-protocol, exec pavucontrol, exec qpaeq, mode "default"
     bindsym Return    mode "default"
     bindsym Escape    mode "default"
 }
