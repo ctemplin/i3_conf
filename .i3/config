@@ -275,3 +275,15 @@ mode $soundmenu {
     bindsym Escape    mode "default"
 }
 
+# taken from https://faq.i3wm.org/question/2787/move-floating-window-with-arrows/
+# Super+M puts you in move
+set $moveitmenu "move windows with arrow keys: Super+M to exit"
+mode $moveitmenu {
+    bindsym Up move up 20px
+    bindsym Left move left 20px
+    bindsym Down move down 20px
+    bindsym Right move right 20px
+    bindsym Mod4+m mode "default"
+}
+bindsym $mod+m focus floating; mode $moveitmenu
+
