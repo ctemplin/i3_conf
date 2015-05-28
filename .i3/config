@@ -290,4 +290,4 @@ bindsym $mod+m focus floating; mode $moveitmenu
 # Disable the EnergyStar display off timeout when running fullscreen.
 # Requires install i3ipc-python
 # sudo apt-get install i3ipc
-exec_always `python /home/ctemplin/.i3/disable-standby-fs.py`
+exec_always `python ~/.i3/disable-standby-fs.py`
