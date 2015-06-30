@@ -54,6 +54,8 @@ font pango:Waree 12px
 
 hide_edge_borders none
 
+for_window [class="Xfce4-terminal"] border 1pixel
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
