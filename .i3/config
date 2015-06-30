@@ -16,6 +16,8 @@ exec synclient TouchpadOff=1
 exec gpg-agent --daemon --enable-ssh-support --write-env-file "${HOME}/.gpg-agent-info"
 
 exec nm-applet
+exec blueman-applet
+exec rfkill block bluetooth
 
 set $mod Mod4
 
