@@ -61,7 +61,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+T exec xfce4-terminal #i3-sensible-terminal
-bindsym $mod+T exec "cwd=`xfce4-terminal-pwd.sh`; cwd=${cwd:-HOME}; xfce4-terminal --default-working-directory $cwd"
+bindsym $mod+T exec "~/.i3/xfce4-terminal-pwd.sh"
 
 # kill focused window
 bindsym $mod+Shift+Q kill
