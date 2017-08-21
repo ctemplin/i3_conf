@@ -16,16 +16,22 @@ args = parser.parse_args()
 
 def on_fullscreen_mode(i3, e):
     if e.container.props.fullscreen_mode:
-        call(['xset', 's', 'off'])
-        call(['xset', '-dpms'])
+        # call(['xset', 's', 'off'])
+        # call(['xset', '-dpms'])
+        call(['notify-send', 'Screen Lock Disabled'])
+        call(['xautolock', '-disable'])
     else:
-        call(['xset', 's', 'on'])
-        call(['xset', '+dpms'])
+        # call(['xset', 's', 'on'])
+        # call(['xset', '+dpms'])
+        call(['notify-send', 'Screen Lock Enabled'])
+        call(['xautolock', '-enable'])
 
 def on_window_close(i3, e):
     if e.container.props.fullscreen_mode:
-        call(['xset', 's', 'on'])
-        call(['xset', '+dpms'])
+        # call(['xset', 's', 'on'])
+        # call(['xset', '+dpms'])
+        call(['notify-send', 'Screen Lock Enabled'])
+        call(['xautolock', '-enable'])
 
 i3.on('window::fullscreen_mode', on_fullscreen_mode)
 i3.on('window::close', on_window_close)
