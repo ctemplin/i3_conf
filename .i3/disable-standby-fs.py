@@ -14,8 +14,13 @@ parser = ArgumentParser(prog='disable-standby-fs',
 
 args = parser.parse_args()
 
+
+def find_fullscreen(con):
+    # XXX remove me when this method is available on the con in a release
+    return [c for c in con.descendants() if c.type == 'con' and c.fullscreen_mode]
+
 def on_fullscreen_mode(i3, e):
-    if e.container.props.fullscreen_mode:
+    if len(find_fullscreen(i3.get_tree())):
         # call(['xset', 's', 'off'])
         # call(['xset', '-dpms'])
         call(['notify-send', 'Screen Lock Disabled'])
@@ -27,7 +32,7 @@ def on_fullscreen_mode(i3, e):
         call(['xautolock', '-enable'])
 
 def on_window_close(i3, e):
-    if e.container.props.fullscreen_mode:
+    if not len(find_fullscreen(i3.get_tree())):
         # call(['xset', 's', 'on'])
         # call(['xset', '+dpms'])
         call(['notify-send', 'Screen Lock Enabled'])
