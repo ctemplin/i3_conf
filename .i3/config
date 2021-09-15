@@ -166,6 +166,9 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 
+# Move focused container to new workspace
+bindsym $mod+Ctrl+n exec --no-startup-id ~/.i3/bin/i3-move-container-to-new-workspace.sh
+
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
 bindsym $mod+Ctrl+2 move container to workspace $ws2
