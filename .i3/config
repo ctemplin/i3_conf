@@ -198,39 +198,41 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 # assign [class="Skype"] $ws5
 
 # Open specific applications in floating mode
-for_window [title="Spotify Premium"] move container to workspace 7
+for_window [class="(?i)System-config-printer.py"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [title="About Pale Moon"] floating enable
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [title="bmenu"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
+for_window [title="Dodge the Creeps"] floating enable border normal
 for_window [title="File Transfer*"] floating enable
 for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="Godot_Engine" title="*"] floating enable border normal
 for_window [class="GParted"] floating enable border normal
 for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [class="kruler"] floating enable border none
 for_window [class="Lightdm-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro-hello"] floating enable
 for_window [class="Manjaro Settings Manager"] floating enable border normal
+for_window [class="Manjaro-hello"] floating enable
 for_window [title="MuseScore: Play Panel"] floating enable
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
 for_window [class="Pamac-manager"] floating enable
-# for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 for_window [class="Simple-scan"] floating enable border normal
-for_window [class="(?i)System-config-printer.py"] floating enable border normal
 for_window [class="Skype"] floating enable border normal
+for_window [class="SpeedCrunch"] floating enable border pixel 1 resize set 800 400
 for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 
-for_window [title="Dodge the Creeps"] floating enable border normal
-for_window [class="Godot_Engine" title="*"] floating enable border normal
-for_window [class="kruler"] floating enable border none
-for_window [class="SpeedCrunch"] floating enable border pixel 1 resize set 800 400
+# Open specific applications on specific workspaces
+# Spotify is special case see https://i3wm.org/docs/userguide.html#assign_workspace
+for_window [title="Spotify Premium"] move container to workspace 7
+
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
