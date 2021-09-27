@@ -196,6 +196,8 @@ bindsym $mod+Shift+9 workspace number 19
 
 # Move focused container to new workspace
 bindsym $mod+Ctrl+n exec --no-startup-id ~/.i3/bin/i3-move-container-to-new-workspace.sh
+# Rename workspace
+bindsym $mod+Ctrl+Shift+n exec i3-input -F 'rename workspace to "%s"' -P 'New #:New Name - '
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace number 1
