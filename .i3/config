@@ -124,10 +124,10 @@ bindsym $mod+space focus mode_toggle
 # toggle sticky
 bindsym $mod+Shift+s sticky toggle
 
-# focus the parent container after marking the focused child
-bindsym $mod+a mark --add _prevFocusedChild; focus parent;
-# focus the previously focused child
-bindsym $mod+Shift+a [con_mark="_prevFocusedChild"] focus; mark --toggle "_prevFocusedChild"
+# focus the parent container
+bindsym $mod+a focus parent
+# focus the child
+bindsym $mod+Shift+a focus child
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
