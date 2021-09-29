@@ -127,7 +127,7 @@ bindsym $mod+Shift+s sticky toggle
 # focus the parent container after marking the focused child
 bindsym $mod+a mark --add _prevFocusedChild; focus parent;
 # focus the previously focused child
-bindsym $mod+Shift+a [con_mark="_prevFocusedChild"] focus; mark --toggle "_prevFocusedChild" 
+bindsym $mod+Shift+a [con_mark="_prevFocusedChild"] focus; mark --toggle "_prevFocusedChild"
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -358,7 +358,7 @@ exec_always --no-startup-id fix_xcursor
 # Change the variable name at the place you want to match the color
 # of your terminal like this:
 # [example]
-# If you want your bar to have the same background color as your 
+# If you want your bar to have the same background color as your
 # terminal background change the line 362 from:
 # background #14191D
 # to:
@@ -441,7 +441,7 @@ gaps outer -2
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
@@ -486,7 +486,7 @@ mode "$mode_gaps_outer" {
 }
 
 exec_always `python ~/.i3/disable-standby-fs.py`
-exec_always `sudo rmmod pcspkr` 
+exec_always `sudo rmmod pcspkr`
 exec_always blueman-applet
 # exec --no-startup-id emacs --daemon
 
@@ -505,7 +505,7 @@ bindsym $mod+Ctrl+Alt+Shift+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+Alt+t exec --no-startup-id compton -b
 # Transparency on/off.
 # Edit config of running daemon. Seems kludgy but it works.
-bindsym $mod+T       exec --no-startup-id sed -i "s/^inactive-opacity = .*$/inactive-opacity = 0.5/" ~/.config/compton.conf 
+bindsym $mod+T       exec --no-startup-id sed -i "s/^inactive-opacity = .*$/inactive-opacity = 0.5/" ~/.config/compton.conf
 bindsym $mod+Shift+T exec --no-startup-id sed -i "s/^inactive-opacity = .*$/inactive-opacity = 1.0/" ~/.config/compton.conf
 
 # Node CLI app to quickly move a Pulseaudio input to a different sink. (e.g. from headphones to speakers)
