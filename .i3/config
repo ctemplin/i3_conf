@@ -143,6 +143,8 @@ bindsym $mod+Ctrl+Left workspace prev
 # Mark current window
 # Read 1 character and mark the current window with this character
 bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
+# Unmark current window
+bindsym $mod+Shift+m [con_id="__focused__"] unmark
 
 # Read 1 character and go to the window with the character
 bindsym $mod+g exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
@@ -512,7 +514,7 @@ bindsym $mod+Shift+T exec --no-startup-id sed -i "s/^inactive-opacity = .*$/inac
 # Change the default -title (add "-i3") so the window props don't affect editors, etc.
 for_window [title="pactlmovesinkinput_i3"] floating enable sticky enable border pixel 1
 
-bindsym $mod+Ctrl+Shift+m exec --no-startup-id terminal -e sh -c pactlmovesinkinput
+bindsym $mod+Ctrl+Alt+Shift+m exec --no-startup-id terminal -e sh -c pactlmovesinkinput
 #terminal -title pactlmovesinkinput_i3 -e pactlmovesinkinput
 
 
