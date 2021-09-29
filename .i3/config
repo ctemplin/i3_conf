@@ -140,6 +140,8 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
+# List current marks
+bindsym $mod+Ctrl+Shift+m exec "~/.i3/bin/i3-notify-marks.sh"
 # Mark current window
 # Read 1 character and mark the current window with this character
 bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
@@ -415,7 +417,7 @@ bar {
 }
 
 # hide/unhide i3status bar
-bindsym $mod+Shift+m bar mode toggle
+bindsym $mod+Ctrl+Shift+b bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
