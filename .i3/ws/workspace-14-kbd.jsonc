@@ -1,0 +1,62 @@
+// vim:ts=2:sw=2:et
+{
+  "border": "pixel",
+  "current_border_width": 1,
+  "floating": "auto_off",
+  "marks": [],
+  "name": "Oryx: The ZSA Keyboard Configurator",
+  "percent": 0.65,
+  "swallows": [
+    {
+      "class": "^Brave\\-browser$",
+      // "instance": "^configure\\.zsa\\.io__ergodox\\-ez_layouts_0KVG4_latest_0$",
+      "title": "^Oryx.*$",
+      "window_role": "^pop\\-up$"
+    }
+  ],
+  "type": "con"
+}
+
+{
+  // splitv split container with 2 children
+  "border": "pixel",
+  "floating": "auto_off",
+  "layout": "splitv",
+  "marks": [],
+  "percent": 0.35,
+  "type": "con",
+  "nodes": [
+    {
+      "border": "normal",
+      "current_border_width": 1,
+      "floating": "user_off",
+      "marks": [],
+      "name": "Wally",
+      "percent": 0.5,
+      "swallows": [
+        {
+          "class": "^Wally$",
+          "instance": "^wally$"
+          // "title": "^Wally$"
+        }
+      ],
+      "type": "con"
+    },
+    {
+      "border": "pixel",
+      "current_border_width": 1,
+      "floating": "auto_off",
+      "marks": [],
+      "name": "URxvt",
+      "percent": 0.5,
+      "swallows": [
+        {
+          "class": "^URxvt$",
+          "instance": "^urxvt$"
+        }
+      ],
+      "type": "con"
+    }
+  ]
+}
+

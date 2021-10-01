@@ -73,6 +73,21 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 focus_follows_mouse no
 
+# Set workspace layout features
+bindsym $mod+l mode "$mode_layout"
+
+set $mode_layout Load Layout: p̅kgs  a̲udio  c̲omms  k̲bd
+mode "$mode_layout" {
+    bindsym a exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/2-audio.sh, mode "default"
+    bindsym c exec notify-send "Comms is Not Implemented"
+    bindsym p exec notify-send "Pkgs Not Implemented"
+    bindsym k exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/14-kbd.sh, mode "default"
+
+    # exit layout mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 # change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -279,6 +294,7 @@ for_window [class="Simple-scan"] floating enable border normal
 for_window [class="Skype"] floating enable border normal
 for_window [class="SpeedCrunch"] floating enable border pixel 1 resize set 800 400
 for_window [class="Timeset-gui"] floating enable border normal
+for_window [class="Wally"] floating disable
 for_window [class="Xfburn"] floating enable
 
 # Open specific applications on specific workspaces
@@ -400,7 +416,7 @@ bar {
 	bindsym button4 nop
 	bindsym button5 nop
 #   font xft:URWGothic-Book 11
-	strip_workspace_numbers yes
+	strip_workspace_numbers no
 
     colors {
         background #222D31
