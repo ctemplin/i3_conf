@@ -8,7 +8,9 @@ if test $CWS -ne $WS ; then i3-msg workspace number $WS; fi;
 
 # Only populate if current tree is empty (1 line)
 if test `i3-save-tree --workspace ${WS} | grep -c .` -lt $WS ; then 
-  i3-msg rename workspace to "${WS}:audio"
+  # TerminessTFF Nerd Font char UxF028 in string below
+  i3-msg rename workspace to "\"`echo -e ${WS}: audio`\""
+  # i3-msg rename workspace to "${WS}:audio"
   i3-msg append_layout "~/.i3/ws/workspace-${WS}-audio.jsonc"
   pavucontrol &
   blueman-manager &
