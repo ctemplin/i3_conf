@@ -13,6 +13,7 @@ if test `i3-save-tree --workspace ${WS} | grep -c .` -lt $WS ; then
   pavucontrol &
   blueman-manager &
   urxvtc &
+  spotify &
 else 
   notify-send -u critical -t 3000 "Workspace #${WS} isn't empty"
 fi
