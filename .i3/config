@@ -298,10 +298,6 @@ for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="Wally"] floating disable
 for_window [class="Xfburn"] floating enable
 
-# Open specific applications on specific workspaces
-# Spotify is special case see https://i3wm.org/docs/userguide.html#assign_workspace
-for_window [title="Spotify Premium"] move container to workspace 7
-
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
