@@ -1,0 +1,72 @@
+// vim:ts=4:sw=4:et
+[
+  {
+    // stacked split container with 1 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "stacked",
+    "marks": [],
+    "percent": 0.35,
+    "type": "con",
+    "nodes": [
+      {
+        "border": "pixel",
+        "current_border_width": 1,
+        "floating": "auto_off",
+        "marks": [],
+        "name": "Octopi",
+        "percent": 1,
+        "swallows": [
+          {
+            "class": "^octopi$",
+            "instance": "^octopi$",
+            "title": "^Octopi$"
+          }
+        ],
+        "type": "con"
+      }
+    ]
+  },
+
+  {
+    // splith split container with 2 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "marks": [],
+    "percent": 0.65,
+    "type": "con",
+    "nodes": [
+      {
+        "border": "pixel",
+        "current_border_width": 1,
+        "floating": "auto_off",
+        "marks": [],
+        "name": "URxvt",
+        "percent": 0.5,
+        "swallows": [
+          {
+            "class": "^URxvt$",
+            "instance": "^urxvt$"
+          }
+        ],
+        "type": "con"
+      },
+      {
+        "border": "pixel",
+        "current_border_width": 1,
+        "floating": "auto_off",
+        "marks": [],
+        "name": "URxvt",
+        "percent": 0.5,
+        "swallows": [
+          {
+            "class": "^URxvt$",
+            "instance": "^urxvt$"
+          }
+        ],
+        "type": "con"
+      }
+    ]
+  }
+]

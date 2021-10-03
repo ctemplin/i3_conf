@@ -1,21 +1,20 @@
 #!/usr/bin/bash
 
 source ~/.bashrc.d/i3-current-workspace.sh
-export WS=2;
+export WS=1;
 export CWS=$(i3-ws-num);
 
 if test $CWS -ne $WS ; then i3-msg workspace number $WS; fi;
 
 # Only populate if current tree is empty (1 line)
 if test `i3-save-tree --workspace ${WS} | grep -c .` -lt 2 ; then 
-  # TerminessTFF Nerd Font char UxF028 in string below
-  i3-msg rename workspace to "\"`echo -e ${WS}: audio`\""
+  # TerminessTFF Nerd Font char UxF8d6 pkgs in string below
+  i3-msg rename workspace to "\"`echo -e ${WS}: pkgs`\""
   # i3-msg rename workspace to "${WS}:audio"
-  i3-msg append_layout "~/.i3/ws/workspace-${WS}-audio.jsonc"
-  pavucontrol &
-  blueman-manager &
+  i3-msg append_layout "~/.i3/ws/workspace-${WS}-pkgs.jsonc"
+  /usr/bin/octopi &
   urxvtc &
-  spotify &
+  urxvtc &
 else 
   notify-send -u critical -t 3000 "Workspace #${WS} isn't empty"
 fi
