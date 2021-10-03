@@ -147,15 +147,19 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
 
 # move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+semicolon move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
+bindsym $mod+semicolon scratchpad show
 
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
+
+#navigate workspaces next / previous bringing focused window along
+bindsym $mod+Ctrl+Shift+Right move workspace next; workspace next;
+bindsym $mod+Ctrl+Shift+Left move workspace prev; workspace prev;
 
 # List current marks
 bindsym $mod+Ctrl+Shift+m exec "~/.i3/bin/i3-notify-marks.sh"
@@ -229,7 +233,7 @@ bindsym $mod+Shift+9 workspace number 19
 bindsym $mod+Shift+0 workspace number 20
 
 # Move focused container to new workspace
-bindsym $mod+Ctrl+n exec --no-startup-id ~/.i3/bin/i3-move-container-to-new-workspace.sh
+bindsym $mod+minus exec --no-startup-id ~/.i3/bin/i3-move-container-to-new-workspace.sh
 # Rename workspace
 bindsym $mod+Ctrl+Shift+n exec i3-input -F 'rename workspace to "%s"' -P 'New #:New Name - '
 
