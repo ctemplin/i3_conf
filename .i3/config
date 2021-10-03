@@ -197,12 +197,12 @@ bindsym $mod+Ctrl+Shift+t exec --no-startup-id "~/.i3/bin/i3-cycle-marks.sh reve
 # set $ws19 19
 
 # TerminessTTF fonts encoded
-# [1,"1: pkgs"]
-# [2,"2: audio"]
-# [3,"3: code"]
-# [4,"4:謹 webdev"]
+# [1,"1:pkgs"]
+# [2,"2:audio"]
+# [3,"3:code"]
+# [4,"4:謹webdev"]
 # [9,"9"]
-# [14,"14: kdb"]
+# [14,"14:kdb"]
 # [15,"15"]
 # [18,"18"]
 
