@@ -30,6 +30,16 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec terminal
+# start a floating terminal
+# Start with title flag (urxvt) which i3 will catch.
+# [class=] would be better (urxvt -name flag) but it
+# doesn't work. Probably not set by urxvt until after
+# i3 is notified of window creation. urxvt will rename
+# the window and so will the shell most likely, so this
+# should appear only briefly if at all.
+# Another cleaner option would setting hints via EMWH.
+bindsym $mod+Shift+Return exec terminal -title "Float"
+for_window [title="Float"] floating enable border normal
 
 # kill focused window
 bindsym $mod+Shift+q kill
