@@ -96,23 +96,11 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# alternatively, you can use vim keys:
-# bindsym $mod+j focus left
-# bindsym $mod+k focus down
-# bindsym $mod+l focus up
-# bindsym $mod+semicolon focus right
-
-# move focused window
+# move focused window within a workspace
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-
-# alternatively, you can use vim keys:
-# bindsym $mod+Shift+j move left
-# bindsym $mod+Shift+k move down
-# bindsym $mod+Shift+l move up
-# bindsym $mod+Shift+semicolon move right
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
@@ -180,30 +168,6 @@ bindsym $mod+g exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 bindsym $mod+Ctrl+t exec --no-startup-id "~/.i3/bin/i3-cycle-marks.sh"
 bindsym $mod+Ctrl+Shift+t exec --no-startup-id "~/.i3/bin/i3-cycle-marks.sh reverse"
 
-# Workspace names
-# to display names or symbols instead of plain workspace numbers you can use
-# something like: set $ws1 1:mail
-#                 set $ws2 2:
-# set $ws1 1
-# set $ws2 2
-# set $ws3 3
-# set $ws4 4
-# set $ws5 5
-# set $ws6 6
-# set $ws7 7
-# set $ws8 8
-# set $ws9 9
-# set $ws10 10
-# set $ws11 11
-# set $ws12 12
-# set $ws13 13
-# set $ws14 14
-# set $ws15 15
-# set $ws16 16
-# set $ws17 17
-# set $ws18 18
-# set $ws19 19
-
 # TerminessTTF fonts encoded
 # [1,"1:pkgs"]
 # [2,"2:audio"]
@@ -263,28 +227,6 @@ bindsym $mod+Ctrl+Shift+7 move container to workspace number 17
 bindsym $mod+Ctrl+Shift+8 move container to workspace number 18
 bindsym $mod+Ctrl+Shift+9 move container to workspace number 19
 bindsym $mod+Ctrl+Shift+0 move container to workspace number 20
-
-# Move to workspace with focused container
-# bindsym $mod+Shift+0 move container to workspace number 0; workspace number 0
-# bindsym $mod+Shift+1 move container to workspace number 1; workspace number 1
-# bindsym $mod+Shift+2 move container to workspace number 2; workspace number 2
-# bindsym $mod+Shift+3 move container to workspace number 3; workspace number 3
-# bindsym $mod+Shift+4 move container to workspace number 4; workspace number 4
-# bindsym $mod+Shift+5 move container to workspace number 5; workspace number 5
-# bindsym $mod+Shift+6 move container to workspace number 6; workspace number 6
-# bindsym $mod+Shift+7 move container to workspace number 7; workspace number 7
-# bindsym $mod+Shift+8 move container to workspace number 8; workspace number 8
-# bindsym $mod+Shift+9 move container to workspace number 9; workspace number 9
-# bindsym $mod+Shift+1 move container to workspace number 10; workspace number 10
-# bindsym $mod+Shift+1 move container to workspace number 11; workspace number 11
-# bindsym $mod+Shift+2 move container to workspace number 12; workspace number 12
-# bindsym $mod+Shift+3 move container to workspace number 13; workspace number 13
-# bindsym $mod+Shift+4 move container to workspace number 14; workspace number 14
-# bindsym $mod+Shift+5 move container to workspace number 15; workspace number 15
-# bindsym $mod+Shift+6 move container to workspace number 16; workspace number 16
-# bindsym $mod+Shift+7 move container to workspace number 17; workspace number 17
-# bindsym $mod+Shift+8 move container to workspace number 18; workspace number 18
-# bindsym $mod+Shift+9 move container to workspace number 19; workspace number 19
 
 # Open specific applications in floating mode
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
