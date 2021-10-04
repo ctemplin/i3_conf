@@ -153,13 +153,17 @@ bindsym $mod+Shift+semicolon move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+semicolon scratchpad show
 
-#navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
+# navigate workspaces next/previous like browser tabs
+bindsym $mod+Next workspace next
+bindsym $mod+Prior workspace prev
+bindsym $mod+Home exec --no-startup-id "~/.i3/bin/i3-extreme-workspace.sh focus first"
+bindsym $mod+End exec --no-startup-id "~/.i3/bin/i3-extreme-workspace.sh focus last"
 
-#navigate workspaces next / previous bringing focused window along
-bindsym $mod+Ctrl+Shift+Right move workspace next; workspace next;
-bindsym $mod+Ctrl+Shift+Left move workspace prev; workspace prev;
+# navigate workspaces next/previous like browser tabs bringing focused window along
+bindsym $mod+Shift+Next move workspace next; workspace next;
+bindsym $mod+Shift+Prior move workspace prev; workspace prev;
+bindsym $mod+Shift+Home exec --no-startup-id "~/.i3/bin/i3-extreme-workspace.sh move first"
+bindsym $mod+Shift+End exec --no-startup-id "~/.i3/bin/i3-extreme-workspace.sh move last"
 
 # List current marks
 bindsym $mod+Ctrl+Shift+m exec "~/.i3/bin/i3-notify-marks.sh"
