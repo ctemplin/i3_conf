@@ -41,7 +41,8 @@ bindsym $mod+Shift+Return exec terminal -title "Float"
 for_window [title="Float"] floating enable border normal
 
 # Notify NumLock state
-bindsym Num_Lock --release exec "NLSTATE=`xset q | grep -Po '(?<=Num Lock:\s{4})(\w+)'`; \
+# TODO: query system for desktop icon dir
+bindsym Num_Lock --release exec "NLSTATE=`xset q | grep -Po 'Num Lock:\s*\K\w+'`; \
 notify-send -i /usr/share/icons/Papirus/22x22/panel/num-lock-${NLSTATE}.svg \\"NumLock: ${NLSTATE^^}\\""
 
 # kill focused window
