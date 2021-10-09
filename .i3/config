@@ -4,6 +4,7 @@
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
+set $alt Mod1
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
@@ -78,17 +79,12 @@ bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+F5 exec terminal -e 'mocp'
-bindsym $mod+Alt+Ctrl+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-  # Dunst has its own key bindings in ~/.config/dunst/dunstrc.
-  # Noted here for reading convenience. DO NOT UNCOMMENT
-  # # Close notification.               i3 equiv: Alt+space
-  # close = mod1+space
-  # # Close all notifications.          i3 equiv: Ctrl+Atl+space
-  # close_all = ctrl+mod1+space
-  # # Redisplay last message(s).        i3 equiv: $mod+Ctrl+h
-  # history = ctrl+mod4+h 
-  # # Context menu.                     i3 equiv: Ctrl+Atl+c
-  # context = ctrl+mod1+c
+bindsym $mod+Ctrl+$alt+Shift+k --release exec "killall dunst; notify-send 'restart dunst'"
+  # Dunst has its own DEPRECATED key bindings in ~/.config/dunst/dunstrc.
+bindsym $alt+space exec --no-startup-id dunstctl close
+bindsym Ctrl+$alt+space exec --no-startup-id dunstctl close-all
+bindsym $mod+control+h exec --no-startup-id dunstctl history-pop
+bindsym Ctrl+$alt+c exec --no-startup-id dunstctl context
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
@@ -521,8 +517,8 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 # Transparency
 # Start/stop the compositor daemon (compton is a symlink to picom)
 # Of rare use (?), hence the big chords. Might help perf.
-bindsym $mod+Ctrl+Alt+Shift+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+Alt+t exec --no-startup-id compton -b
+bindsym $mod+Ctrl+$alt+Shift+t exec --no-startup-id pkill compton
+bindsym $mod+Ctrl+$alt+t exec --no-startup-id compton -b
 # Transparency on/off.
 # Edit config of running daemon. Seems kludgy but it works.
 bindsym $mod+T       exec --no-startup-id sed -i "s/^inactive-opacity = .*$/inactive-opacity = 0.5/" ~/.config/compton.conf
@@ -532,7 +528,7 @@ bindsym $mod+Shift+T exec --no-startup-id sed -i "s/^inactive-opacity = .*$/inac
 # Change the default -title (add "-i3") so the window props don't affect editors, etc.
 for_window [title="pactlmovesinkinput_i3"] floating enable sticky enable border pixel 1
 
-bindsym $mod+Ctrl+Alt+Shift+m exec --no-startup-id terminal -e sh -c pactlmovesinkinput
+bindsym $mod+Ctrl+$alt+Shift+m exec --no-startup-id terminal -e sh -c pactlmovesinkinput
 #terminal -title pactlmovesinkinput_i3 -e pactlmovesinkinput
 
 
