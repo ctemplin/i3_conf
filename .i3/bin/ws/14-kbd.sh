@@ -13,9 +13,9 @@ if test `i3-save-tree --workspace ${WS} | wc -l` -lt 2 ; then
   # i3-msg rename workspace to "${WS}:kbd"
   i3-msg append_layout "~/.i3/ws/workspace-${WS}-kbd.jsonc"
   wally &
-  brave --new-window --app=file:///${HOME}/Pictures/qwerty.png &
+  brave --new-window --user-data-dir=${HOME}/.config/chromium-kbd/ --app=file:///${HOME}/Pictures/qwerty.png &
   urxvtc &
-  brave --new-window --app=https://configure.zsa.io/my_layouts &
+  brave --new-window --user-data-dir=${HOME}/.config/chromium-kbd/ --app=https://configure.zsa.io/my_layouts &
   #i3-msg '[title="^Oryx"] focus'
 else 
   notify-send -u critical -t 3000 "Workspace #${WS} isn't empty"
