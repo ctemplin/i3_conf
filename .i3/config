@@ -123,10 +123,23 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window within a workspace
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# NUM ppt/px will only apply to floating windows.
+# i.e. the 3 blocks below are behaviorially identical for tiled windows.
+# large jump
+bindsym $mod+Shift+Left move left 10 ppt
+bindsym $mod+Shift+Down move down 10 ppt
+bindsym $mod+Shift+Up move up 10 ppt
+bindsym $mod+Shift+Right move right 10 ppt
+# small jump
+bindsym $mod+Ctrl+Shift+Left move left 1 ppt
+bindsym $mod+Ctrl+Shift+Down move down 1 ppt
+bindsym $mod+Ctrl+Shift+Up move up 1 ppt
+bindsym $mod+Ctrl+Shift+Right move right 1 ppt
+# single pixel
+bindsym $mod+Ctrl+$alt+Shift+Left move left 1 px
+bindsym $mod+Ctrl+$alt+Shift+Down move down 1 px
+bindsym $mod+Ctrl+$alt+Shift+Up move up 1 px
+bindsym $mod+Ctrl+$alt+Shift+Right move right 1 px
 
 # split orientation
 bindsym $mod+h split h; exec notify-send 'tile horizontally'
