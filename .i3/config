@@ -39,7 +39,7 @@ bindsym $mod+Return exec terminal
 # should appear only briefly if at all.
 # Another cleaner option would setting hints via EMWH.
 bindsym $mod+Shift+Return exec terminal -title "Float"
-for_window [title="Float"] floating enable border normal
+for_window [title="Float"] floating enable, border normal, resize set 640 400, move position center
 
 # Notify NumLock state
 # TODO: query system for desktop icon dir. (>gtk-query-settings  | grep -i icon)
@@ -337,21 +337,15 @@ mode "$mode_system" {
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 3 px or 3 ppt
-        bindsym k resize grow height 3 px or 3 ppt
-        bindsym l resize shrink height 3 px or 3 ppt
-        bindsym semicolon resize grow width 3 px or 3 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 3 px or 3 ppt
-        bindsym Down resize grow height 3 px or 3 ppt
-        bindsym Up resize shrink height 3 px or 3 ppt
-        bindsym Right resize grow width 3 px or 3 ppt
+        bindsym Left  resize shrink width  3 px
+        bindsym Down  resize grow height   3 px
+        bindsym Up    resize shrink height 3 px
+        bindsym Right resize grow width    3 px
+
+        # grow/shrink in all directions.
+        bindsym Shift+Up   resize grow   up 100 px, resize grow   down 100 px, resize grow   left 160 px, resize grow   right 160 px;
+        bindsym Shift+Down resize shrink up 100 px, resize shrink down 100 px, resize shrink left 160 px, resize shrink right 160 px;
 
         # exit resize mode: Enter or Escape
         bindsym Return mode "default"
