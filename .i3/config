@@ -79,12 +79,17 @@ bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+F5 exec terminal -e 'mocp'
-bindsym $mod+Ctrl+$alt+Shift+k --release exec "killall dunst; notify-send 'restart dunst'"
+
+# Notifications
+bindsym $mod+Ctrl+$alt+Shift+n --release exec "killall dunst; notify-send 'restart dunst'"
   # Dunst has its own DEPRECATED key bindings in ~/.config/dunst/dunstrc.
-bindsym $alt+space exec --no-startup-id dunstctl close
-bindsym Ctrl+$alt+space exec --no-startup-id dunstctl close-all
-bindsym $mod+control+h exec --no-startup-id dunstctl history-pop
-bindsym Ctrl+$alt+c exec --no-startup-id dunstctl context
+bindsym $mod+n exec --no-startup-id dunstctl history-pop
+bindsym $mod+Shift+n exec --no-startup-id dunstctl close
+bindsym $mod+Ctrl+n exec --no-startup-id dunstctl context
+bindsym $mod+$alt+n exec --no-startup-id dunstctl context
+bindsym $mod+Ctrl+Shift+n exec --no-startup-id dunstctl close-all
+bindsym $mod+$alt+Shift+n exec --no-startup-id dunstctl close-all
+
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
