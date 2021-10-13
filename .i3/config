@@ -409,6 +409,24 @@ set_from_resource $term_color13    color13
 set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
+set_from_resource $background i3wm.USE_FALLBACK #222222
+set_from_resource $statusline i3wm.USE_FALLBACK #666666
+set_from_resource $separator  i3wm.USE_FALLBACK #444444
+
+set_from_resource $focused_workspace  i3wm.USE_FALLBACK #d70a53 #d70a53 #ffffff #292F34
+set_from_resource $active_workspace   i3wm.USE_FALLBACK #333333 #333333 #888888 #FDF6E3
+set_from_resource $inactive_workspace i3wm.USE_FALLBACK #333333 #333333 #888888 #EEE8D5
+set_from_resource $binding_mode       i3wm.USE_FALLBACK #16a085 #2C2C2C #F9FAF9
+set_from_resource $urgent_workspace   i3wm.USE_FALLBACK #eb709b #eb709b #ffffff #E5201D
+
+set_from_resource $client_focused          i3wm.USE_FALLBACK #d70a53 #d70a53 #ffffff #8c0333
+set_from_resource $client_focused_inactive i3wm.USE_FALLBACK #333333 #333333 #888888 #333333
+set_from_resource $client_unfocused        i3wm.USE_FALLBACK #333333 #333333 #888888 #333333
+set_from_resource $client_urgent           i3wm.USE_FALLBACK #eb709b #eb709b #ffffff #eb709b
+set_from_resource $client_placeholder      i3wm.USE_FALLBACK #000000 #0c0c0c #ffffff #000000
+set_from_resource $client_background       i3wm.USE_FALLBACK #2B2C2B
+
+
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
 	i3bar_command i3bar
@@ -430,16 +448,16 @@ bar {
 	strip_workspace_numbers yes
 
     colors {
-        background #222D31
-        statusline #F9FAF9
-        separator  #454947
+        background $background
+        statusline $statusline
+        separator  $separator
 
 #                      border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
+        focused_workspace  $focused_workspace
+        active_workspace   $active_workspace
+        inactive_workspace $inactive_workspace
+        # binding_mode       $binding_mode
+        urgent_workspace   $urgent_workspace
     }
 }
 
@@ -448,13 +466,13 @@ bindsym $mod+Ctrl+Shift+b bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
-  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000 
+  client.focused          $client_focused
+  client.focused_inactive $client_focused_inactive
+  client.unfocused        $client_unfocused
+  client.urgent           $client_urgent
+  client.placeholder      $client_placeholder
 
-  client.background       #2B2C2B
+  client.background       $client_background
 
 #############################
 ### settings for i3-gaps: ###
