@@ -1,6 +1,34 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# Key mnemonics - (i3 default)
+# semi-colon: scratchpad
+# a: (parent/child) - duplicates p
+# b: borders
+# c: 
+# d: (dmenu)
+# e: (layout)
+# f: Find
+# g: (go, gaps)
+# h: help
+# i: i3 itself
+# j: jump
+# k: 
+# l: layouts
+# m: marks
+# n: notifications
+# o: 
+# p: parent/child - duplicates a
+# q: (quit, toggle split layout)
+# r: resize, rename
+# s: (stacking/sticky)
+# t: (transparency, cycle marks)
+# u: 
+# v: (vertical split)
+# w: (tabbed layout)
+# x: (xkill)
+# y:
+# z: (morc_menu)
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
