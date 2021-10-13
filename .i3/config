@@ -274,8 +274,12 @@ bindsym $mod+g exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 bindsym $mod+Ctrl+t exec --no-startup-id "~/.i3/bin/i3-cycle-marks.sh"
 bindsym $mod+Ctrl+Shift+t exec --no-startup-id "~/.i3/bin/i3-cycle-marks.sh reverse"
 
-# Move focused container to new workspace
-bindsym $mod+minus exec --no-startup-id ~/.i3/bin/i3-move-container-to-new-workspace.sh
+# TODO Modify the shell script to handle both scenarios a la i3-extreme-workspace.sh
+# Create new workspace by incrementing current max WS number
+bindsym $mod+minus exec --no-startup-id "i3-msg workspace number `i3-msg -t get_workspaces | jq '[.[].num] | max + 1'`"
+# As above and move focused container to new workspace
+bindsym $mod+Shift+minus exec --no-startup-id ~/.i3/bin/i3-move-container-to-new-workspace.sh
+
 # Rename workspace
 bindsym $mod+Ctrl+Shift+r exec i3-input -F 'rename workspace to "%s"' -P 'New #:New Name - '
 
