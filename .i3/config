@@ -374,6 +374,9 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
+# set $rsz_step_sml 1
+# set $rsz_step_reg 1
+# set $rsz_step_lrg 50
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
@@ -442,6 +445,7 @@ set_from_resource $term_color13    color13
 set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
+# Colors from https://github.com/altdesktop/i3-style/blob/f93821b239667cb4ecff41e6ad9632da0b5aaa50/themes/debian
 set_from_resource $background i3wm.USE_FALLBACK #222222
 set_from_resource $statusline i3wm.USE_FALLBACK #666666
 set_from_resource $separator  i3wm.USE_FALLBACK #444444
