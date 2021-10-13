@@ -13,6 +13,7 @@ if test `i3-save-tree --workspace ${WS} | wc -l` -lt 2 ; then
   # i3-msg rename workspace to "${WS}:kbd"
   i3-msg append_layout "~/.i3/ws/workspace-${WS}-kbd.jsonc"
   wally &
+  # http://i.kinja-img.com/gawker-media/image/upload/t_original/936004453291456145.png
   brave --new-window --user-data-dir=${HOME}/.config/chromium-kbd/ --app=file:///${HOME}/Pictures/qwerty.png &
   urxvtc &
   brave --new-window --user-data-dir=${HOME}/.config/chromium-kbd/ --app=https://configure.zsa.io/my_layouts &
