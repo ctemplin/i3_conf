@@ -381,18 +381,18 @@ mode "$mode_system" {
 bindsym $mod+r mode "resize"
 mode "resize" {
 
-        bindsym Left  resize shrink width  3 px
-        bindsym Down  resize grow height   3 px
-        bindsym Up    resize shrink height 3 px
-        bindsym Right resize grow width    3 px
+    bindsym Left  resize shrink width  3 px
+    bindsym Down  resize grow height   3 px
+    bindsym Up    resize shrink height 3 px
+    bindsym Right resize grow width    3 px
 
-        # grow/shrink in all directions.
-        bindsym Shift+Up   resize grow   up 100 px, resize grow   down 100 px, resize grow   left 160 px, resize grow   right 160 px;
-        bindsym Shift+Down resize shrink up 100 px, resize shrink down 100 px, resize shrink left 160 px, resize shrink right 160 px;
+    # grow/shrink in all directions.
+    bindsym Shift+Up   resize grow   up 100 px, resize grow   down 100 px, resize grow   left 160 px, resize grow   right 160 px;
+    bindsym Shift+Down resize shrink up 100 px, resize shrink down 100 px, resize shrink left 160 px, resize shrink right 160 px;
 
-        # exit resize mode: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # exit resize mode: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 
@@ -466,30 +466,29 @@ set_from_resource $client_background       i3wm.USE_FALLBACK #2B2C2B
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-	i3bar_command i3bar
-	# status_command i3status --config ~/.i3/.i3status.conf
-	status_command exec ~/.i3/bin/any_position_wrapper.sh
-	position bottom
+    i3bar_command i3bar
+    # status_command i3status --config ~/.i3/.i3status.conf
+    status_command exec ~/.i3/bin/any_position_wrapper.sh
+    position bottom
 
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-#	tray_output eDP1
+    ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+    # tray_output primary
+    # tray_output eDP1
 
-	bindsym button4 nop
-	bindsym button5 nop
+    bindsym button4 nop
+    bindsym button5 nop
 
-        # Monospaced for properly sized icons in workspace tabs.
-        # Status bar items override w/ proportional font in ~/.i3status.conf
-        font pango:NotoSansMono Nerd Font Medium 10.5
+    # Monospaced for properly sized icons in workspace tabs.
+    # Status bar items override w/ proportional font in ~/.i3status.conf
+    font pango:NotoSansMono Nerd Font Medium 10.5
 
-	strip_workspace_numbers yes
+    strip_workspace_numbers yes
 
     colors {
         background $background
         statusline $statusline
         separator  $separator
 
-#                      border  backgr. text
         focused_workspace  $focused_workspace
         active_workspace   $active_workspace
         inactive_workspace $inactive_workspace
@@ -502,14 +501,13 @@ bar {
 bindsym $mod+Ctrl+Shift+b bar mode toggle
 
 # Theme colors
-# class                   border  backgr. text    indic.   child_border
-  client.focused          $client_focused
-  client.focused_inactive $client_focused_inactive
-  client.unfocused        $client_unfocused
-  client.urgent           $client_urgent
-  client.placeholder      $client_placeholder
+client.focused          $client_focused
+client.focused_inactive $client_focused_inactive
+client.unfocused        $client_unfocused
+client.urgent           $client_urgent
+client.placeholder      $client_placeholder
 
-  client.background       $client_background
+client.background       $client_background
 
 #############################
 ### settings for i3-gaps: ###
@@ -541,34 +539,34 @@ set $plus KP_Add
 set $minus KP_Subtract
 
 mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym o      mode "$mode_gaps_outer"
+    bindsym i      mode "$mode_gaps_inner"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 mode "$mode_gaps_inner" {
-        bindsym $plus  gaps inner current plus 5
-        bindsym $minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
+    bindsym $plus  gaps inner current plus 5
+    bindsym $minus gaps inner current minus 5
+    bindsym 0     gaps inner current set 0
 
-        bindsym Shift+$plus  gaps inner all plus 5
-        bindsym Shift+$minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
+    bindsym Shift+$plus  gaps inner all plus 5
+    bindsym Shift+$minus gaps inner all minus 5
+    bindsym Shift+0     gaps inner all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 mode "$mode_gaps_outer" {
-        bindsym $plus  gaps outer current plus 5
-        bindsym $minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
+    bindsym $plus  gaps outer current plus 5
+    bindsym $minus gaps outer current minus 5
+    bindsym 0     gaps outer current set 0
 
-        bindsym Shift+$plus  gaps outer all plus 5
-        bindsym Shift+$minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
+    bindsym Shift+$plus  gaps outer all plus 5
+    bindsym Shift+$minus gaps outer all minus 5
+    bindsym Shift+0     gaps outer all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 exec_always `python ~/.i3/disable-standby-fs.py`
