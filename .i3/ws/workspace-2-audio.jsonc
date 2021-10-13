@@ -65,7 +65,7 @@
                     "floating": "auto_off",
                     "marks": [],
                     "name": "Spotify",
-                    "percent": 0.65,
+                    "percent": 1.0,
                     "swallows": [
                        {
                           "title": "Spotify"
@@ -79,7 +79,7 @@
                     "floating": "auto_off",
                     "marks": [],
                     "name": "URxvt",
-                    "percent": 0.5,
+                    "percent": 1.0,
                     "swallows": [
                       {
                         "class": "^URxvt$",
