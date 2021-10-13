@@ -131,12 +131,13 @@ focus_follows_mouse no
 # Set workspace layout features
 bindsym $mod+l mode "$mode_layout"
 
-set $mode_layout Load Layout: p̅kgs  a̳udio  c̳omms  k̳bd
+set $mode_layout Load Layout: p̅kgs  a̳udio  c̳omms  k̳bd  s̳ec
 mode "$mode_layout" {
     bindsym a exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/2-audio.sh, mode "default"
     bindsym c exec notify-send "Comms is Not Implemented"
     bindsym p exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/1-pkgs.sh, mode "default"
     bindsym k exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/14-kbd.sh, mode "default"
+    bindsym s exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/10-sec.sh, mode "default"
 
     # exit layout mode: "Enter" or "Escape"
     bindsym Return mode "default"

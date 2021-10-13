@@ -1,2 +1,6 @@
 *.code-workspace
 *.code-search
+
+# Layout/script for security apps.
+.i3/bin/ws/*-sec.sh
+.i3/ws/*-sec.json*
