@@ -133,12 +133,12 @@ bindsym $mod+l mode "$mode_layout"
 
 set $mode_layout Load Layout: p̅kgs  a̳udio  c̳omms  k̳bd  s̳ec  t̳erms
 mode "$mode_layout" {
-    bindsym a exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/2-audio.sh {{{ws2}}}, mode "default"
+    bindsym a exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/audio.sh {{{ws2}}}, mode "default"
     bindsym c exec notify-send "Comms is Not Implemented"
-    bindsym k exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/14-kbd.sh {{{ws14}}}, mode "default"
-    bindsym p exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/1-pkgs.sh {{{ws1}}}, mode "default"
-    bindsym s exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/10-sec.sh {{{ws10}}}, mode "default"
-    bindsym t exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/4-terms.sh {{{ws4}}}, mode "default"
+    bindsym k exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/kbd.sh {{{ws14}}}, mode "default"
+    bindsym p exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/pkgs.sh {{{ws1}}}, mode "default"
+    bindsym s exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/sec.sh {{{ws10}}}, mode "default"
+    bindsym t exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/terms.sh {{{ws4}}}, mode "default"
 
     # exit layout mode: "Enter" or "Escape"
     bindsym Return mode "default"
