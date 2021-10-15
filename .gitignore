@@ -4,3 +4,7 @@
 # Layout/script for security apps.
 .i3/bin/ws/*-sec.sh
 .i3/ws/*-sec.json*
+
+.i3/config
+# Script-generated configs
+.i3/config-gen-output/*
