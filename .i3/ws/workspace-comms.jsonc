@@ -1,0 +1,45 @@
+// vim:ts=2:sw=2:et
+{
+  // splith split container with 2 children
+  "border": "pixel",
+  "floating": "auto_off",
+  "layout": "splith",
+  "marks": [],
+  "percent": 1,
+  "type": "con",
+  "nodes": [
+    {
+      "border": "pixel",
+      "current_border_width": 1,
+      "floating": "auto_off",
+      "marks": [],
+      "name": "Telegram",
+      "percent": 0.5,
+      "swallows": [
+        {
+          "class": "^TelegramDesktop$",
+          "instance": "^telegram\\-desktop$",
+          "title": "^Telegram$"
+        }
+      ],
+      "type": "con"
+    },
+    {
+      "border": "pixel",
+      "current_border_width": 1,
+      "floating": "auto_off",
+      "marks": [],
+      "name": "Signal",
+      "percent": 0.5,
+      "swallows": [
+        {
+          "class": "^Signal$",
+          "instance": "^signal$",
+          "title": "^Signal$",
+          "window_role": "^browser\\-window$"
+        }
+      ],
+      "type": "con"
+    }
+  ]
+}
