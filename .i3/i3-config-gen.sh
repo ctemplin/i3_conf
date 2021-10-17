@@ -34,7 +34,7 @@ i3-config-gen ()
     printf -v wsFormat "%s:%s" $wsNum ${wsArr[$i]}
     printf -v bindSyms \
     "bindsym \$mod+%s workspace \\\"%s\\\";\\\n\
-    bindsym \$mod+Shift+%s move container to workspace \\\"%s\\\"; workspace \\\"%s\\\";"\
+bindsym \$mod+Shift+%s move container to workspace \\\"%s\\\"; workspace \\\"%s\\\";"\
     $wsKey $wsFormat $wsKey $wsFormat $wsFormat
 
     # Extract the text label (just the ascii no ##: or glyph)
