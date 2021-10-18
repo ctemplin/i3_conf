@@ -228,12 +228,13 @@ bindsym $mod+Shift+j move container to workspace back_and_forth; workspace back_
 bindsym $mod+l mode "$mode_layout"
 # Layout mode can be used to merely focus WS. append_layout will abort if WS isn't empty.
 # i3-config-gen will replace {{{label}}} with the full "num:icon-label" defined above.
-set $mode_layout Load Layout: p̅kgs  a̳udio  c̳omms  k̳bd  s̳ec  t̳erms
+set $mode_layout Load Layout: p̅kgs  a̳udio  c̳omms  k̳bd  r̳ef  s̳ec  t̳erms
 mode "$mode_layout" {
     bindsym a exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/audio.sh {{{audio}}}, mode "default"
     bindsym c exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/comms.sh {{{comms}}}, mode "default"
     bindsym k exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/kbd.sh {{{kbd}}}, mode "default"
     bindsym p exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/pkgs.sh {{{pkgs}}}, mode "default"
+    bindsym r exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/ref.sh {{{ref}}}, mode "default"
     bindsym s exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/sec.sh {{{sec}}}, mode "default"
     bindsym t exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/terms.sh {{{terms}}}, mode "default"
 
