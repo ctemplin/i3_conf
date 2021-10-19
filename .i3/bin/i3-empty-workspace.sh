@@ -24,7 +24,7 @@ i3-empty-workspace ()
       if ! [[ $WSSTR =~ ",$i," ]]; then NUMKEY=$i; break; fi
     done
   else
-    for ((i = $((--CWS)); i >= 0 ; i--)); do
+    for ((i = $((--CWS)); i >= 1 ; i--)); do
       if ! [[ $WSSTR =~ ",$i," ]]; then NUMKEY=$i; break; fi
     done
   fi
