@@ -18,7 +18,7 @@
 # m: marks
 # n: notifications
 # o: 
-# p: parent/child - duplicates a
+# p: parent/child - duplicates (a)
 # q: (quit, toggle split layout)
 # r: resize, rename
 # s: (stacking/sticky)
@@ -206,7 +206,7 @@ bindsym $mod+j workspace back_and_forth
 bindsym $mod+Shift+j move container to workspace back_and_forth; workspace back_and_forth
 
 # BEGIN WORKSPACE ORDER #
-pkgs
+pkg
 audio
 謹code
 dbg
@@ -237,10 +237,10 @@ mode "$mode_layout" {
     bindsym a exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/audio.sh {{{audio}}}, mode "default"
     bindsym c exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/comms.sh {{{comm}}}, mode "default"
     bindsym k exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/kbd.sh {{{kbd}}}, mode "default"
-    bindsym p exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/pkgs.sh {{{pkgs}}}, mode "default"
+    bindsym p exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/pkgs.sh {{{pkg}}}, mode "default"
     bindsym r exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/ref.sh {{{ref}}}, mode "default"
     bindsym s exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/sec.sh {{{sec}}}, mode "default"
-    bindsym t exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/terms.sh {{{terms}}}, mode "default"
+    bindsym t exec --no-startup-id /usr/bin/bash ~/.i3/bin/ws/terms.sh {{{term}}}, mode "default"
 
     # exit layout mode: "Enter" or "Escape"
     bindsym Return mode "default"
@@ -322,6 +322,7 @@ for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 for_window [class="Simple-scan"] floating enable border normal
 for_window [class="Skype"] floating enable border normal
 for_window [class="SpeedCrunch"] floating enable border pixel 1 resize set 800 400
+for_window [class="TelegramDesktop"] border pixel
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="Wally"] floating disable
 for_window [class="Xfburn"] floating enable
@@ -466,7 +467,7 @@ bar {
 
     # Monospaced for properly sized icons in workspace tabs.
     # Status bar items override w/ proportional font in ~/.i3status.conf
-    font pango:NotoSansMono Nerd Font Medium 10.5
+    font pango:NotoSansMono Nerd Font Medium 9.0
 
     strip_workspace_numbers yes
 
