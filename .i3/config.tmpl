@@ -56,8 +56,10 @@ font xft:Noto Sans Medium 11
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
-# start a terminal
+# Start a terminal
+# The two Alt-key variations bypass urxvtd and start urxvt with its own process.
 bindsym $mod+Return exec terminal
+bindsym $mod+$alt+Return exec "urxvt -e bash -i"
 # start a floating terminal
 # Start with title flag (urxvt) which i3 will catch.
 # [class=] would be better (urxvt -name flag) but it
@@ -67,7 +69,9 @@ bindsym $mod+Return exec terminal
 # should appear only briefly if at all.
 # Another cleaner option would setting hints via EMWH.
 bindsym $mod+Shift+Return exec terminal -title "Float"
-for_window [title="Float"] floating enable, border normal, resize set 640 400, move position center
+# bindsym $mod+$alt+Shift+Return exec "urxvt -title 'Float' -e bash --rcfile <(echo '. ~/.bashrc')"
+bindsym $mod+$alt+Shift+Return exec "urxvt -title 'Float' -e bash -i"
+for_window [title="Float"] floating enable, border normal, resize set 800 500, move position center
 
 # Notify NumLock state
 # TODO: query system for desktop icon dir. (>gtk-query-settings  | grep -i icon)
