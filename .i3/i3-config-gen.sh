@@ -3,15 +3,15 @@
 i3-config-gen ()
 {
 
-  local configTmpl=~/.i3/config.tmpl
-  local workFile=~/.i3/config-gen-output/config.temp
-  local configFile=~/.i3/config-gen-output/config
+  local CONFIG_TMPL=~/.i3/config.tmpl
+  local WORK_FILE=~/.i3/config-gen-output/config.temp
+  local CONFIG_FILE=~/.i3/config-gen-output/config
 
-  /usr/bin/cp ${configTmpl} ${workFile}
+  /usr/bin/cp ${CONFIG_TMPL} ${WORK_FILE}
 
-  local wsNum
+  local WS_NUM
 
-  declare -a wsKeys=(1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0)
+  declare -a WS_KEYS=(1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0)
 
   # extract the work space key number (2 for each w/w\o Ctrl)
   # Define the magic beginning and ending comments
@@ -19,38 +19,42 @@ i3-config-gen ()
   local END_LINE_PRTL='# END WORKSPACE ORDER'
 
   # Get the line number of the beginning comment
-  read -d ':' lineNum <<< $(grep -no "${START_LINE_PRTL}" ${configTmpl})
+  read -r -d ':' LINE_NUM <<< "$(grep -no "${START_LINE_PRTL}" ${CONFIG_TMPL})"
 
   # Read the line between into an array
-  declare -a wsArr=($(grep -Pzo "(?s)${START_LINE_PRTL}\N*.\K(.*)(?=${END_LINE_PRTL})" ${configTmpl}))
+  mapfile -t WS_NAMES< <(grep -Pzo "(?s)${START_LINE_PRTL}\N*.\K(.*)(?=\N*.${END_LINE_PRTL})" ${CONFIG_TMPL})
 
   # Loop through the array by index
-  for i in ${!wsArr[@]}; do
-    local wsNum=$(( $i + 1 ))
-    local wsKey=${wsKeys[$i]}
-    if (( $i > 9 )); then wsKey="Ctrl+${wsKey}"; fi
+  local i
+  for i in "${!WS_NAMES[@]}"; do
+    local WS_NUM=$(( i + 1 ))
+    local WS_KEY=${WS_KEYS[$i]}
+    if (( i > 9 )); then WS_KEY="Ctrl+${WS_KEY}"; fi
 
     # format the number and name into the new workspace name
-    printf -v wsFormat "%s:%s" $wsNum ${wsArr[$i]}
-    printf -v bindSyms \
+    printf -v WS_FULLNAME "%s:%s" $WS_NUM "${WS_NAMES[$i]}"
+    printf -v BINDSYM_COMS \
     "bindsym \$mod+%s workspace \\\"%s\\\";\\\n\
 bindsym \$mod+Shift+%s move container to workspace \\\"%s\\\"; workspace \\\"%s\\\";"\
-    $wsKey $wsFormat $wsKey $wsFormat $wsFormat
+    "$WS_KEY" "$WS_FULLNAME" "$WS_KEY" "$WS_FULLNAME" "$WS_FULLNAME"
 
     # Extract the text label (just the ascii no ##: or glyph)
-    local wsLabel=$(echo "${wsArr[$i]}" | jq -Rr '. | match( "(?>\\P{In_Basic_Latin}*)\\K([\\p{ASCII}\\s]+)" ) | .captures[0].string ')
+    local WS_LABEL
+    WS_LABEL=$(echo "${WS_NAMES[$i]}" | jq -Rr '. | match( "(?>\\P{In_Basic_Latin}*)\\K([\\p{ASCII}\\s]+)" ) | .captures[0].string ')
 
     # rename existing workspace with same number but different name
-    local curName=`i3-msg -t get_workspaces | jq -cr --argjson num ${wsNum} --arg name ${wsFormat} '.[] | select(.num == $num) | select(.name != $name ) | .name'`
-    if [[ -n $curName ]]; then i3-msg "rename workspace \"${curName}\" to \"${wsFormat}\""; fi
+    local WS_OLD_FULLNAME
+    WS_OLD_FULLNAME=$(i3-msg -t get_workspaces | jq -cr --argjson num ${WS_NUM} --arg name "${WS_FULLNAME}" '.[] | select(.num == $num) | select(.name != $name ) | .name')
+    if [[ -n $WS_OLD_FULLNAME ]]; then i3-msg "rename workspace \"${WS_OLD_FULLNAME}\" to \"${WS_FULLNAME}\""; fi
 
-    local pat="s/${wsArr[$i]}/${bindSyms}/"
-    sed -i -e "s/{{{${wsLabel}}}}/\"${wsFormat}\"/g" ${workFile}
-    sed -i -e "$(( $i * 2 + $lineNum  + 1 ))s/^.*$/${bindSyms}/" ${workFile}
+    # Replace the "{{{label}}}"" tokens with the workspace full names
+    sed -i -e "s/{{{${WS_LABEL}}}}/\"${WS_FULLNAME}\"/g" ${WORK_FILE}
+    # Insert bindSym commands. 2 = # of lines in BINDSYM_COMS. TODO: de-magic
+    sed -i -e "$(( i * 2 + LINE_NUM  + 1 ))s/^.*$/${BINDSYM_COMS}/" ${WORK_FILE}
 
   done
-  /usr/bin/cp --backup=t ${workFile} ${configFile}
-  rm ${workFile}
+  /usr/bin/cp --backup=t ${WORK_FILE} ${CONFIG_FILE}
+  rm ${WORK_FILE}
   i3-msg reload
 }
 i3-config-gen
