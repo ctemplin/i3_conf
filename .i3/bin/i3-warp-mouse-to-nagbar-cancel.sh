@@ -1,7 +1,10 @@
 #!/usr/bin/bash
 
-source ~/.bashrc.d/pointer.sh
+main ()
+{
+  source ~/.bashrc.d/pointer.sh
+  get_display_dimensions;
 
-get_display_dimensions;
-
-wmp -a $((${RES_X} - 10)) 20;
+  wmp -a $(( RES_X - 10 )) 20;
+}
+main "$@"
