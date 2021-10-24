@@ -381,6 +381,8 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+bindsym $mod+backslash exec --no-startup-id "~/.i3/bin/i3-cycle-size-ppts.sh grow"
+bindsym $mod+Shift+backslash exec --no-startup-id "~/.i3/bin/i3-cycle-size-ppts.sh shrink"
 
 
 # Autostart applications
