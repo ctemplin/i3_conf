@@ -182,6 +182,9 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+# close all floating windows on workspace
+bindsym $mod+Ctrl+$alt+Shift+space [workspace="__focused__" floating] kill
+
 # toggle sticky
 bindsym $mod+Shift+s sticky toggle
 
