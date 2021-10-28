@@ -37,6 +37,8 @@ i3-empty-workspace ()
     SHFTKEY=""; if [[ $ACTION == "move" ]]; then SHFTKEY="Shift\+"; fi
     # Extract the bindsym command from the config and execute it.
     i3-msg "$(i3-msg -t get_config | grep -Po "bindsym\s+\\\$mod\+${SHFTKEY}${CTRLKEY}${NUMKEY}\s+\K(.*)")"
+  else
+    notify-send --urgency critical -t 1500 "No empty workspace found."
   fi
   return 0
 }
