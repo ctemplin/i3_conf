@@ -190,6 +190,9 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+# except from i3-shade
+bindsym $mod+Ctrl+space nop i3-shade-exempt
+
 # close all floating windows on workspace
 bindsym $mod+Ctrl+$alt+Shift+space [workspace="__focused__" floating] kill
 
