@@ -449,19 +449,30 @@ set_from_resource $background i3wm.USE_FALLBACK #222222
 set_from_resource $statusline i3wm.USE_FALLBACK #666666
 set_from_resource $separator  i3wm.USE_FALLBACK #444444
 
+# $*_workspace vars are used by i3bar
+# class                                                 border  backgr. text    indicator child_border
 set_from_resource $focused_workspace  i3wm.USE_FALLBACK #d70a53 #d70a53 #ffffff #292F34
 set_from_resource $active_workspace   i3wm.USE_FALLBACK #333333 #333333 #888888 #FDF6E3
 set_from_resource $inactive_workspace i3wm.USE_FALLBACK #333333 #333333 #888888 #EEE8D5
 set_from_resource $binding_mode       i3wm.USE_FALLBACK #16a085 #2C2C2C #F9FAF9
 set_from_resource $urgent_workspace   i3wm.USE_FALLBACK #eb709b #eb709b #ffffff #E5201D
 
-set_from_resource $client_focused          i3wm.USE_FALLBACK #d70a53 #d70a53 #ffffff #8c0333
-set_from_resource $client_focused_inactive i3wm.USE_FALLBACK #333333 #333333 #888888 #333333
-set_from_resource $client_unfocused        i3wm.USE_FALLBACK #333333 #333333 #888888 #333333
-set_from_resource $client_urgent           i3wm.USE_FALLBACK #eb709b #eb709b #ffffff #eb709b
-set_from_resource $client_placeholder      i3wm.USE_FALLBACK #000000 #0c0c0c #ffffff #000000
-set_from_resource $client_background       i3wm.USE_FALLBACK #2B2C2B
+# class                                                                 border  backgr. text    indicator child_border
+set_from_resource $client_focused          i3wm.client_focused          #d70a53 #d70a53 #ffffff #8c0333
+set_from_resource $client_focused_inactive i3wm.client_focused_inactive #333333 #333333 #888888 #333333
+set_from_resource $client_unfocused        i3wm.client_unfocused        #333333 #333333 #888888 #333333
+set_from_resource $client_urgent           i3wm.client_urgent           #eb709b #eb709b #ffffff #eb709b
+set_from_resource $client_placeholder      i3wm.client_placeholder      #000000 #0c0c0c #ffffff #000000
+set_from_resource $client_background       i3wm.client_background       #2B2C2B
 
+# Theme colors
+client.focused          $client_focused
+client.focused_inactive $client_focused_inactive
+client.unfocused        $client_unfocused
+client.urgent           $client_urgent
+client.placeholder      $client_placeholder
+
+client.background       $client_background
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
@@ -498,15 +509,6 @@ bar {
 
 # hide/unhide i3status bar
 bindsym $mod+Ctrl+Shift+b bar mode toggle
-
-# Theme colors
-client.focused          $client_focused
-client.focused_inactive $client_focused_inactive
-client.unfocused        $client_unfocused
-client.urgent           $client_urgent
-client.placeholder      $client_placeholder
-
-client.background       $client_background
 
 #############################
 ### settings for i3-gaps: ###
