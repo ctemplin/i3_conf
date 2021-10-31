@@ -165,6 +165,12 @@ bindsym $mod+Ctrl+$alt+Shift+Down move down 1 px
 bindsym $mod+Ctrl+$alt+Shift+Up move up 1 px
 bindsym $mod+Ctrl+$alt+Shift+Right move right 1 px
 
+# snap to edges - very rough needs script to calc ws and con dimensions
+bindsym --release $mod+$alt+Shift+Left move position 0 30 ppt
+bindsym --release $mod+$alt+Shift+Down move position 30 ppt 57 ppt
+bindsym --release $mod+$alt+Shift+Up move position 30 ppt 0
+bindsym --release $mod+$alt+Shift+Right move position 58 ppt 30 ppt
+
 # split orientation
 bindsym $mod+h split h; exec notify-send 'tile horizontally'
 bindsym $mod+v split v; exec notify-send 'tile vertically'
