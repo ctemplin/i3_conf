@@ -379,9 +379,10 @@ mode "$mode_system" {
 # set $rsz_step_sml 1
 # set $rsz_step_reg 1
 # set $rsz_step_lrg 50
-# Resize window (you can also use the mouse for that)
-bindsym $mod+r mode "resize"
-mode "resize" {
+# Resize window mode
+bindsym $mod+r mode "$mode_resize"
+set $mode_resize resize: g̳row  s̳hrink
+mode "$mode_resize" {
 
     bindsym Left  resize shrink width  3 px
     bindsym Down  resize grow height   3 px
@@ -391,6 +392,10 @@ mode "resize" {
     # grow/shrink in all directions.
     bindsym Shift+Up   resize grow   up 100 px, resize grow   down 100 px, resize grow   left 160 px, resize grow   right 160 px;
     bindsym Shift+Down resize shrink up 100 px, resize shrink down 100 px, resize shrink left 160 px, resize shrink right 160 px;
+
+    # cycle PPTs
+    bindsym g exec --no-startup-id ~/.i3/bin/i3-cycle-size-ppts.sh grow
+    bindsym s exec --no-startup-id ~/.i3/bin/i3-cycle-size-ppts.sh shrink
 
     # exit resize mode: Enter or Escape
     bindsym Return mode "default"
