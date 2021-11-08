@@ -351,7 +351,7 @@ for_window [urgent=latest] focus
 # Reload current config
 bindsym $mod+i reload
 # Regenerate/load config file
-bindsym $mod+Shift+i exec --no-startup-id ~/.i3/i3-config-gen.sh
+bindsym $mod+Shift+i exec --no-startup-id "xrdb ~/.Xresources && ~/.i3/i3-config-gen.sh"
 # Toggle strip_workspace_numbers
 bindsym $mod+$alt+Shift+i exec --no-startup-id ~/.i3/i3-config-toggle-ws-numbers.sh
 
