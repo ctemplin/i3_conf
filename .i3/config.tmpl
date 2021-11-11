@@ -430,6 +430,8 @@ exec_always --no-startup-id fix_xcursor
 exec --no-startup-id xbanish -t 1
 exec --no-startup-id urxvtd -q -o -f
 
+exec_always --no-startup-id i3-shade
+
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
 # https://i3wm.org/docs/userguide.html#xresources
