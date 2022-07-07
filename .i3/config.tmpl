@@ -284,6 +284,10 @@ bindsym $mod+End exec --no-startup-id "~/.i3/bin/i3-extreme-workspace.sh focus l
 bindsym $mod+Shift+Home exec --no-startup-id "~/.i3/bin/i3-extreme-workspace.sh move first"
 bindsym $mod+Shift+End exec --no-startup-id "~/.i3/bin/i3-extreme-workspace.sh move last"
 
+# navigate previous/next outputs (monitors)
+bindsym $mod+$alt+Next focus output right
+bindsym $mod+$alt+Prior focus output left
+
 bindsym $mod+k exec --no-startup-id "~/.i3/bin/dmenu-workspaces.sh"
 
 #endregion WORKSPACE NAV COMMANDS
