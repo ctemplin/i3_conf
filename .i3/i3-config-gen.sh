@@ -53,6 +53,12 @@ bindsym \$mod+Shift+%s move container to workspace \\\"%s\\\"; workspace \\\"%s\
     sed -i -e "$(( i * 2 + LINE_NUM  + 1 ))s/^.*$/${BINDSYM_COMS}/" ${WORK_FILE}
 
   done
+
+  # Insert primary output name 
+  local TRAY_OUTPUT
+  TRAY_OUTPUT=$(xrandr --listactivemonitors | grep -oP '\A\s*0:\s*.*\s\K\S*\Z')
+  sed -i -e "s/## tray_output.*/tray_output $TRAY_OUTPUT/" ${WORK_FILE};
+
   /usr/bin/cp --backup=t ${WORK_FILE} ${CONFIG_FILE}
   rm ${WORK_FILE}
   i3-msg reload
