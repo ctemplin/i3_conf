@@ -168,13 +168,19 @@ bindsym $mod+Ctrl+$alt+Shift+Right move right 1 px
 
 # snap to edges - very rough needs script to calc ws and con dimensions
 bindsym --release $mod+$alt+Shift+Left move position 0 30 ppt
-bindsym --release $mod+$alt+Shift+Down move position 30 ppt 57 ppt
+# Note: while the down key makes better semantic sense, the Insert
+# key has the corresponding bottom/center position.
+bindsym --release $mod+$alt+Shift+Insert move position 30 ppt 57 ppt
 bindsym --release $mod+$alt+Shift+Up move position 30 ppt 0
 bindsym --release $mod+$alt+Shift+Right move position 58 ppt 30 ppt
 bindsym --release $mod+$alt+Shift+Prior move position 0 ppt 0 ppt
 bindsym --release $mod+$alt+Shift+Next move position 0 ppt 57 ppt
 bindsym --release $mod+$alt+Shift+End move position 58 ppt 57 ppt
 bindsym --release $mod+$alt+Shift+Home move position 58 ppt 0 ppt
+# Note: while the Down key doesn't make semantic sense, it has the
+# corresponding middle/center position.
+bindsym --release $mod+$alt+Shift+Down move position 30 ppt 30 ppt
+
 
 # split orientation
 bindsym $mod+h split h; exec notify-send 'tile horizontally'
