@@ -11,7 +11,7 @@ main ()
   # Get the orientation of the focused node's parent.
   # TODO: remove assumption that immediate parent has relevant layout/orientation.
   # TODO: instead walk up node tree until we find appropriate node.
-  local PARENT_ORNTN, DIM
+  local PARENT_ORNTN DIM
   PARENT_ORNTN=$(i3-focused-node-parent | jq -r '.orientation')
   if [[ "$PARENT_ORNTN" == "vertical" ]]; then
     DIM="height"
