@@ -2,9 +2,16 @@
 
 main ()
 {
-  # TODO: short-circuit for non-tiling windows
   # shellcheck source=/dev/null
   source "${HOME}"/.bashrc.d/i3-current-workspace.sh
+ 
+   # short-circuit for non-tiling windows
+  FLOATING=$(i3-focused-node-floating)
+  if [[ "$FLOATING" == *_on ]]; then
+    notify-send --urgency critical -t 1500 "Cannot cycle size of floating window"
+    return 1;
+  fi
+  
   # Array of PPT vals to step through
   local -a PPTS=( 9 12 18 24 32 38 50 62 68 76 82 88 91 )
   # Get the current PPT
