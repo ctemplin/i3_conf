@@ -3,7 +3,8 @@
 main ()
 {
   # TODO: short-circuit for non-tiling windows
-  source ${HOME}/.bashrc.d/i3-current-workspace.sh
+  # shellcheck source=/dev/null
+  source "${HOME}"/.bashrc.d/i3-current-workspace.sh
   # Array of PPT vals to step through
   local -a PPTS=( 9 12 18 24 32 38 50 62 68 76 82 88 91 )
   # Get the current PPT
