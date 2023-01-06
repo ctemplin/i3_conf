@@ -402,7 +402,8 @@ mode "$mode_system" {
 # set $rsz_step_lrg 50
 # Resize window mode
 bindsym $mod+r mode "$mode_resize"
-set $mode_resize resize: g̳row  s̳hrink
+# ＼ below is U+FF3C
+set $mode_resize resize: g̳row s̳hrink     ＼|
 mode "$mode_resize" {
 
     bindsym Left  resize shrink width  3 px
@@ -411,17 +412,18 @@ mode "$mode_resize" {
     bindsym Right resize grow width    3 px
 
     # grow/shrink in all directions.
-    bindsym Shift+Up   resize grow   up 100 px, resize grow   down 100 px, resize grow   left 160 px, resize grow   right 160 px;
-    bindsym Shift+Down resize shrink up 100 px, resize shrink down 100 px, resize shrink left 160 px, resize shrink right 160 px;
+    bindsym g resize grow   up 100 px, resize grow   down 100 px, resize grow   left 160 px, resize grow   right 160 px;
+    bindsym s resize shrink up 100 px, resize shrink down 100 px, resize shrink left 160 px, resize shrink right 160 px;
 
-    # cycle PPTs
-    bindsym g exec --no-startup-id ~/.i3/bin/i3-cycle-size-ppts.sh grow
-    bindsym s exec --no-startup-id ~/.i3/bin/i3-cycle-size-ppts.sh shrink
+    # cycle PPTs - duplicates $mod versions below
+    bindsym backslash exec --no-startup-id ~/.i3/bin/i3-cycle-size-ppts.sh grow
+    bindsym Shift+backslash exec --no-startup-id ~/.i3/bin/i3-cycle-size-ppts.sh shrink
 
     # exit resize mode: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+# cycle PPTs - duplicated $mode_resize version above
 bindsym $mod+backslash exec --no-startup-id "~/.i3/bin/i3-cycle-size-ppts.sh grow"
 bindsym $mod+Shift+backslash exec --no-startup-id "~/.i3/bin/i3-cycle-size-ppts.sh shrink"
 
