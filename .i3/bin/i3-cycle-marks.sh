@@ -6,9 +6,9 @@ main ()
   if [ -z "$1" ]; then INCVAL=1; else INCVAL=-1; fi
 
   # Fill an array with the current marks.
-  declare -a "MARK_LIST=(`i3-msg -t get_marks | jq -rj '.[] | (. + " ")'`)"
+  declare -a "MARK_LIST=($(i3-msg -t get_marks | jq -rj '.[] | (. + " ")'))"
   # Get the the first mark (if any) of the currently focused window.
-  MARK_OF_FOCUSED=`i3-msg -t get_tree | jq -j ' recurse(.nodes[]) | select(.focused == true) | .marks[0] '`
+  MARK_OF_FOCUSED=$(i3-msg -t get_tree | jq -j ' recurse(.nodes[]) | select(.focused == true) | .marks[0] ')
 
   if [[ "${#MARK_LIST[@]}" == 0 ]]; then
     notify-send "No marked windows"
@@ -29,7 +29,7 @@ main ()
           TARGET_MARK_INDEX=$(( i + INCVAL ));
           # If beyond bound wrap around to beginning of array. No need to reverse
           # wrap to end of array; an index of -1 is equivalent to array length - 1.
-          if (( $TARGET_MARK_INDEX >= ${#MARK_LIST[@]} )); then
+          if (( TARGET_MARK_INDEX >= ${#MARK_LIST[@]} )); then
             TARGET_MARK_INDEX=0
           fi
         fi
