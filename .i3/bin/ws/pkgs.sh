@@ -7,7 +7,8 @@ main ()
   WS=$1;
   CWS=$(i3-ws-name);
 
-  if test "$CWS" != "$WS" ; then i3-msg workspace "$WS"; fi;
+  # shellcheck disable=SC2086
+  if test $CWS != $WS ; then i3-msg workspace $WS; fi;
 
   # Only populate if current tree is empty (1 line)
   if test "$(i3-save-tree --workspace "${WS}" | wc -l)" -lt 2 ; then 
