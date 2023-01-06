@@ -166,20 +166,18 @@ bindsym $mod+Ctrl+$alt+Shift+Down move down 1 px
 bindsym $mod+Ctrl+$alt+Shift+Up move up 1 px
 bindsym $mod+Ctrl+$alt+Shift+Right move right 1 px
 
-# snap to edges - very rough needs script to calc ws and con dimensions
-bindsym --release $mod+$alt+Shift+Left move position 0 30 ppt
-# Note: while the down key makes better semantic sense, the Insert
-# key has the corresponding bottom/center position.
-bindsym --release $mod+$alt+Shift+Insert move position 30 ppt 57 ppt
-bindsym --release $mod+$alt+Shift+Up move position 30 ppt 0
-bindsym --release $mod+$alt+Shift+Right move position 58 ppt 30 ppt
-bindsym --release $mod+$alt+Shift+Prior move position 0 ppt 0 ppt
-bindsym --release $mod+$alt+Shift+Next move position 0 ppt 57 ppt
-bindsym --release $mod+$alt+Shift+End move position 58 ppt 57 ppt
-bindsym --release $mod+$alt+Shift+Home move position 58 ppt 0 ppt
-# Note: while the Down key doesn't make semantic sense, it has the
-# corresponding middle/center position.
-bindsym --release $mod+$alt+Shift+Down move position 30 ppt 30 ppt
+# snap floating window to screen edges (or center on screen)
+# Note: while the Down and Insert keys don't make semantic sense, they have
+# the corresponding compass positions (center and bottom respectively)
+bindsym --release $mod+$alt+Shift+Prior  exec ~/.i3/bin/i3-compass-snap.sh northwest
+bindsym --release $mod+$alt+Shift+Up     exec ~/.i3/bin/i3-compass-snap.sh north
+bindsym --release $mod+$alt+Shift+Home   exec ~/.i3/bin/i3-compass-snap.sh northeast
+bindsym --release $mod+$alt+Shift+Left   exec ~/.i3/bin/i3-compass-snap.sh west
+bindsym --release $mod+$alt+Shift+Down   exec ~/.i3/bin/i3-compass-snap.sh center
+bindsym --release $mod+$alt+Shift+Right  exec ~/.i3/bin/i3-compass-snap.sh east
+bindsym --release $mod+$alt+Shift+Next   exec ~/.i3/bin/i3-compass-snap.sh southwest
+bindsym --release $mod+$alt+Shift+Insert exec ~/.i3/bin/i3-compass-snap.sh south
+bindsym --release $mod+$alt+Shift+End    exec ~/.i3/bin/i3-compass-snap.sh southeast
 
 
 # split orientation
