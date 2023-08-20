@@ -8,13 +8,14 @@
 # Assumes focus workspace = $mod+[Ctrl+]+<0-9>, and move = $mod+Shift+[Ctrl]+<0-9>
 # [Ctrl+] targets workspaces 11-20.
 
-source ${HOME}/.bashrc.d/i3-current-workspace.sh
+# shellcheck source=/dev/null
+source "${HOME}"/.bashrc.d/i3-current-workspace.sh
 i3-empty-workspace ()
 {
   local MAX_WS_COUNT=20
   if [[ $1 == "focus" ]]; then ACTION=""; else ACTION="move"; fi
 
-  local WSSTR, CWS, i
+  local WSSTR CWS i NUMKEY
   WSSTR=",$(i3-msg -t get_workspaces | jq -cj  ' .[] | .num | tostring | . + "," ')"
   CWS=$(i3-ws-num)
   
@@ -29,7 +30,7 @@ i3-empty-workspace ()
     done
   fi
 
-  local NUMKEY, CTRLKEY, SHFTKEY
+  local CTRLKEY SHFTKEY
   if [[ -n "$NUMKEY" ]]; then
     # 1-10 and 11-20 use the same keys.
     NUMKEY=$(( "$i" % 10 ))
