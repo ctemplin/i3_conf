@@ -2,6 +2,7 @@
 
 main ()
 {
+  # shellcheck source=/dev/null
   source ~/.bashrc.d/pointer.sh
   get_display_dimensions;
 
