@@ -621,8 +621,8 @@ bindsym $mod+Ctrl+$alt+Shift+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+$alt+t exec --no-startup-id compton -b
 # Transparency on/off.
 # Edit config of running daemon. Seems kludgy but it works.
-bindsym $mod+T       exec --no-startup-id "sed -i 's/^inactive-opacity = .*$/inactive-opacity = 0.20;/' ~/.config/compton.conf"
-bindsym $mod+Shift+T exec --no-startup-id "sed -i 's/^inactive-opacity = .*$/inactive-opacity = 1.00;/' ~/.config/compton.conf"
+bindsym $mod+T       exec --no-startup-id "sed -i 's/^inactive-opacity = .*$/inactive-opacity = 0.20;/' ~/.config/picom.conf"
+bindsym $mod+Shift+T exec --no-startup-id "sed -i 's/^inactive-opacity = .*$/inactive-opacity = 1.00;/' ~/.config/picom.conf"
 
 # Node CLI app to quickly move a Pulseaudio input to a different sink. (e.g. from headphones to speakers)
 # Change the default -title (add "-i3") so the window props don't affect editors, etc.
