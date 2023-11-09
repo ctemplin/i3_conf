@@ -624,6 +624,9 @@ bindsym $mod+Ctrl+$alt+t exec --no-startup-id compton -b
 bindsym $mod+T       exec --no-startup-id "sed -i 's/^inactive-opacity = .*$/inactive-opacity = 0.20;/' ~/.config/picom.conf"
 bindsym $mod+Shift+T exec --no-startup-id "sed -i 's/^inactive-opacity = .*$/inactive-opacity = 1.00;/' ~/.config/picom.conf"
 
+#Touchpad
+bindsym $mod+$alt+T exec --no-startup-id /usr/bin/bash ~/.bashrc.d/touchpad.sh "toggle"
+
 # Node CLI app to quickly move a Pulseaudio input to a different sink. (e.g. from headphones to speakers)
 # Change the default -title (add "-i3") so the window props don't affect editors, etc.
 for_window [title="pactlmovesinkinput_i3"] floating enable sticky enable border pixel 1
