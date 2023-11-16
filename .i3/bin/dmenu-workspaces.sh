@@ -13,10 +13,11 @@ main ()
   WS_NAME=$(i3-msg -t get_workspaces | jq -r ' .[] | .name ' | \
   dmenu -l 20 -w 120 -x $(( RES_X/2 - 50 )) -y 200 \
   -fn "NotoSansMono Nerd Font" \
-  -nf "$(xrdb -get dmenu.foreground)" \
-  -nb "$(xrdb -get dmenu.background)" \
-  -sf "$(xrdb -get dmenu.selforeground)" \
-  -sb "$(xrdb -get dmenu.selbackground)" )
+  #-nf "$(xrdb -get dmenu.foreground)" \
+  # -nb "$(xrdb -get dmenu.background)" \
+  # -sf "$(xrdb -get dmenu.selforeground)" \
+  # -sb "$(xrdb -get dmenu.selbackground)" \
+  )
   i3-msg workspace "$WS_NAME"
 }
 main "$@"
