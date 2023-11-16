@@ -22,7 +22,7 @@
 # q: (quit, toggle split layout)
 # r: resize, rename
 # s: (stacking/sticky)
-# t: (transparency, cycle marks)
+# t: (transparency, touchpad, cycle marks)
 # u: 
 # v: (vertical split)
 # w: (tabbed layout)
@@ -617,15 +617,17 @@ bindsym $mod+Shift+f exec --no-startup-id source ~/.dmenurc && quickswitch.py -d
 # Transparency
 # Start/stop the compositor daemon (compton is a symlink to picom)
 # Of rare use (?), hence the big chords. Might help perf.
-bindsym $mod+Ctrl+$alt+Shift+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+$alt+t exec --no-startup-id compton -b
+# bindsym $mod+Ctrl+$alt+Shift+t exec --no-startup-id pkill compton
+# bindsym $mod+Ctrl+$alt+t exec --no-startup-id compton -b
 # Transparency on/off.
 # Edit config of running daemon. Seems kludgy but it works.
-bindsym $mod+T       exec --no-startup-id "sed -i 's/^inactive-opacity = .*$/inactive-opacity = 0.20;/' ~/.config/picom.conf"
-bindsym $mod+Shift+T exec --no-startup-id "sed -i 's/^inactive-opacity = .*$/inactive-opacity = 1.00;/' ~/.config/picom.conf"
+bindsym $mod+Ctrl+$alt+T       exec --no-startup-id "sed -i 's/^inactive-opacity = .*$/inactive-opacity = 0.20;/' ~/.config/picom.conf"
+bindsym $mod+Ctrl+$alt+Shift+T exec --no-startup-id "sed -i 's/^inactive-opacity = .*$/inactive-opacity = 1.00;/' ~/.config/picom.conf"
 
 #Touchpad
 bindsym $mod+$alt+T exec --no-startup-id /usr/bin/bash ~/.bashrc.d/touchpad.sh "toggle"
+bindsym $mod+T exec --no-startup-id /usr/bin/bash ~/.bashrc.d/touchpad.sh "tapping"
+
 
 # Node CLI app to quickly move a Pulseaudio input to a different sink. (e.g. from headphones to speakers)
 # Change the default -title (add "-i3") so the window props don't affect editors, etc.
