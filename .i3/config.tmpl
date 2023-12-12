@@ -15,14 +15,14 @@
 # j: jump
 # k: workspaces
 # l: layouts
-# m: marks
+# m: marks, cycle marks
 # n: notifications
 # o: 
 # p: parent/child - duplicates (a)
 # q: (quit, toggle split layout)
 # r: resize, rename
 # s: (stacking/sticky)
-# t: (transparency, touchpad, cycle marks)
+# t: touchpad, (transparency)
 # u: 
 # v: (vertical split)
 # w: (tabbed layout)
@@ -305,19 +305,20 @@ bindsym $mod+k exec --no-startup-id "~/.i3/bin/dmenu-workspaces.sh"
 #endregion WORKSPACE NAV COMMANDS
 
 # List current marks
-bindsym $mod+Ctrl+Shift+m exec "~/.i3/bin/i3-notify-marks.sh"
+bindsym $mod+$alt+Ctrl+Shift+m exec "~/.i3/bin/i3-notify-marks.sh"
 # Mark current window
 # Read 1 character and mark the current window with this character
 bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
 # Unmark current window
 bindsym $mod+Shift+m [con_id="__focused__"] unmark
+# Cycle through marked windows
+bindsym $mod+Ctrl+m exec --no-startup-id "~/.i3/bin/i3-cycle-marks.sh"
+bindsym $mod+Ctrl+Shift+m exec --no-startup-id "~/.i3/bin/i3-cycle-marks.sh reverse"
+
 
 # Read 1 character and go to the window with the character
 bindsym $mod+g exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 
-# Cycle through marked windows
-bindsym $mod+Ctrl+t exec --no-startup-id "~/.i3/bin/i3-cycle-marks.sh"
-bindsym $mod+Ctrl+Shift+t exec --no-startup-id "~/.i3/bin/i3-cycle-marks.sh reverse"
 
 # TODO Modify the shell script to handle both scenarios a la i3-extreme-workspace.sh
 # Create new workspace by incrementing current max WS number
@@ -633,5 +634,5 @@ bindsym $mod+T exec --no-startup-id /usr/bin/bash ~/.bashrc.d/touchpad.sh "tappi
 # Change the default -title (add "-i3") so the window props don't affect editors, etc.
 for_window [title="pactlmovesinkinput_i3"] floating enable sticky enable border pixel 1
 
-bindsym $mod+Ctrl+$alt+Shift+m exec --no-startup-id terminal -e sh -c pactlmovesinkinput
+#bindsym $mod+Ctrl+$alt+Shift+m exec --no-startup-id terminal -e sh -c pactlmovesinkinput
 #terminal -title pactlmovesinkinput_i3 -e pactlmovesinkinput
