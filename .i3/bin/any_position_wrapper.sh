@@ -64,7 +64,7 @@ function weather {
     json="{ \"full_text\": \"<span font_desc='Noto Sans 10'>wttr is stale</span>\", \"markup\": \"pango\"}"
   else
     local wttr=`cat ${HOME}/tmp/WTTR_RESP_BODY.txt`
-    json="{ \"full_text\": \"<span font_desc='Noto Sans 10'>${wttr}</span>\", \"markup\": \"pango\"}"
+    json="{ \"full_text\": \"<span>${wttr}</span>\", \"markup\": \"pango\"}"
   fi
   json_array=$(update_holder holder__weather "$json")
 }
