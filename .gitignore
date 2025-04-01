@@ -9,3 +9,6 @@
 .i3/config
 # Script-generated configs
 .i3/config-gen-output/*
+
+# IDE specific configs
+.vscode/*
