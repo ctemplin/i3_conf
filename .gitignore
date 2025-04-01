@@ -5,6 +5,7 @@
 .i3/bin/ws/sec.sh
 .i3/ws/*-sec.json*
 
+# symlimk to generated config
 .i3/config
 # Script-generated configs
 .i3/config-gen-output/*
