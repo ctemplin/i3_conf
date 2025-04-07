@@ -18,37 +18,43 @@ main ()
   BAR_HEIGHT=$(i3-focused-node | jq -j .deco_rect.height)
   WIN_HEIGHT=$((WIN_HEIGHT + BAR_HEIGHT))
 
-  # shellcheck source=/dev/null
-  source ~/.bashrc.d/pointer.sh
-  get_display_dimensions;
+  # Extract the four resolution/offset values
+  local ID=$(i3-focused-node-display)
+  local PAT="s/${ID} connected (primary )?([0-9]*)x([0-9]*)\+([0-9]*)\+([0-9]*).*/\2 \3 \4 \5/p"
+  local -a DIMS=($(xrandr --current | sed -En "${PAT}"))
+  local RES_X=${DIMS[0]}
+  local RES_Y=${DIMS[1]}
+  local OFF_X=${DIMS[2]}
+  local OFF_Y=${DIMS[3]}
+
 
   case $1 in
     northwest)
-      i3-msg move position 0 px 0 px
+      i3-msg move position $((0 + OFF_X)) px ${OFF_Y} px
       ;;
     north)
-      i3-msg move position $((RES_X/2 - WIN_WIDTH/2)) px 0 px
+      i3-msg move position $(((RES_X/2 - WIN_WIDTH/2) + OFF_X)) px ${OFF_Y} px
       ;;
     northeast)
-      i3-msg move position $((RES_X - WIN_WIDTH)) px 0 px
+      i3-msg move position $(((RES_X - WIN_WIDTH) + OFF_X)) px ${OFF_Y} px
       ;;
     west)
-      i3-msg move position 0 px $((RES_Y/2 - WIN_HEIGHT/2)) px
+      i3-msg move position ${OFF_X} px $(((RES_Y/2 - WIN_HEIGHT/2) + ${OFF_Y})) px
       ;;
     center)
-      i3-msg move position $((RES_X/2 - WIN_WIDTH/2)) px $((RES_Y/2 - WIN_HEIGHT/2)) px
+      i3-msg move position $(((RES_X/2 - WIN_WIDTH/2) + ${OFF_X})) px $(((RES_Y/2 - WIN_HEIGHT/2) + ${OFF_Y})) px
       ;;
     east)
-      i3-msg move position $((RES_X - WIN_WIDTH)) px $((RES_Y/2 - WIN_HEIGHT/2)) px
+      i3-msg move position $(((RES_X - WIN_WIDTH) + ${OFF_X})) px $(((RES_Y/2 - WIN_HEIGHT/2) + ${OFF_Y})) px
       ;;
     southwest)
-      i3-msg move position 0 px $((RES_Y - WIN_HEIGHT)) px
+      i3-msg move position ${OFF_X} px $(((RES_Y - WIN_HEIGHT) + ${OFF_Y})) px
       ;;
     south)
-      i3-msg move position $((RES_X/2 - WIN_WIDTH/2)) px $((RES_Y - WIN_HEIGHT)) px
+      i3-msg move position $(((RES_X/2 - WIN_WIDTH/2) + ${OFF_X})) px $(((RES_Y - WIN_HEIGHT) + ${OFF_Y})) px
       ;;
     southeast)
-      i3-msg move position $((RES_X - WIN_WIDTH)) px $((RES_Y - WIN_HEIGHT)) px
+      i3-msg move position $(((RES_X - WIN_WIDTH) + ${OFF_X})) px $(((RES_Y - WIN_HEIGHT) + ${OFF_Y})) px
       ;;
   esac
 
