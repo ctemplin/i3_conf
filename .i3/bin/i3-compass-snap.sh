@@ -19,13 +19,16 @@ main ()
   WIN_HEIGHT=$((WIN_HEIGHT + BAR_HEIGHT))
 
   # Extract the four resolution/offset values
-  local ID=$(i3-focused-node-display)
-  local PAT="s/${ID} connected (primary )?([0-9]*)x([0-9]*)\+([0-9]*)\+([0-9]*).*/\2 \3 \4 \5/p"
-  local -a DIMS=($(xrandr --current | sed -En "${PAT}"))
-  local RES_X=${DIMS[0]}
-  local RES_Y=${DIMS[1]}
-  local OFF_X=${DIMS[2]}
-  local OFF_Y=${DIMS[3]}
+  local ID PAT
+  local -a DIMS
+  local RES_X RES_Y OFF_X OFF_Y
+  ID=$(i3-focused-node-display)
+  PAT="s/${ID} connected (primary )?([0-9]*)x([0-9]*)\+([0-9]*)\+([0-9]*).*/\2 \3 \4 \5/p"
+  DIMS=($(xrandr --current | sed -En "${PAT}"))
+  RES_X=${DIMS[0]}
+  RES_Y=${DIMS[1]}
+  OFF_X=${DIMS[2]}
+  OFF_Y=${DIMS[3]}
 
 
   case $1 in
