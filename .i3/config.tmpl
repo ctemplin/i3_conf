@@ -606,7 +606,7 @@ exec_always `sudo rmmod pcspkr`
 exec_always blueman-applet
 # exec --no-startup-id emacs --daemon
 
-bindsym $mod+Shift+f exec --no-startup-id source ~/.dmenurc && quickswitch.py -d "dmenu -i -l 69 -w 600 -x 660 -y 450 $DMENU_OPTIONS_QUOTED  -p search"
+bindsym $mod+Shift+f exec --no-startup-id source ~/.dmenurc && quickswitch.py -d "dmenu -i -l 69 -z 600 -x 660 -y 450 $DMENU_OPTIONS_QUOTED  -p search"
 
 #bindsym XF86AudioLowerVolume exec --no-startup-id ~/bin/volume-change.sh '-2%'
 #bindsym XF86AudioRaiseVolume exec --no-startup-id ~/bin/volume-change.sh '+2%'
