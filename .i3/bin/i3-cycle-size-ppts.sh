@@ -13,7 +13,7 @@ main ()
   fi
   
   # Array of PPT vals to step through
-  local -a PPTS=( 9 12 18 24 32 38 50 62 68 76 82 88 91 )
+  local -a PPTS=( 9 12 18 24 30 38 50 62 70 76 82 88 91 )
   # Get the current PPT
   CUR_PPT=$(i3-focused-node-ppts)
   # Get the orientation of the focused node's parent.
