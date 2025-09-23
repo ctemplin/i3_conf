@@ -428,7 +428,7 @@ mode "$mode_resize" {
 # cycle PPTs - duplicated $mode_resize version above
 bindsym $mod+backslash exec --no-startup-id "~/.i3/bin/i3-cycle-size-ppts.sh grow"
 bindsym $mod+Shift+backslash exec --no-startup-id "~/.i3/bin/i3-cycle-size-ppts.sh shrink"
-
+bindsym $mod+$alt+backslash exec --no-startup-id "~/.i3/bin/i3-cycle-size-ppts.sh maxMinToggle"
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
