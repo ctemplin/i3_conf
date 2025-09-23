@@ -377,6 +377,10 @@ bindsym $mod+Ctrl+$alt+Shift+i restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"; exec --no-startup-id ~/.i3/bin/i3-warp-mouse-to-nagbar-cancel.sh;
 
+# Lock screen. Same as 'l' in mode_system below
+bindsym $mod+Escape exec --no-startup-id i3exit lock, mode "default"
+bindsym $mod+Delete exec --no-startup-id i3exit lock, mode "default"
+
 # Set shut down, restart and locking features
 bindsym $mod+Shift+Escape mode "$mode_system"
 
