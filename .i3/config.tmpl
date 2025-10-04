@@ -446,9 +446,7 @@ exec --no-startup-id xbanish -t 1
 exec --no-startup-id urxvtd -q -o -f
 exec_always --no-startup-id "if [ -x /usr/lib/geoclue-2.0/demos/agent ]; then /usr/lib/geoclue-2.0/demos/agent; fi"
 
-exec_always --no-startup-id "source ~/.bashrc.d/nvm.bash && \
-i3-shade  --exemptCallbackExec='source ~/.bashrc.d/i3-current-workspace.sh && \
-i3-notify-has-mark _shade_exempt '\''i3-shade: Disabled'\'' '\''i3-shade: Enabled'\'' '"
+exec_always --no-startup-id ~/.i3/bin/i3_shade_exec_always.sh
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
