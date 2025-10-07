@@ -17,7 +17,7 @@
 # l: layouts
 # m: marks, cycle marks
 # n: notifications
-# o: 
+# o: temporary transparency
 # p: parent/child - duplicates (a)
 # q: (quit, toggle split layout)
 # r: resize, rename
@@ -632,6 +632,12 @@ bindsym $mod+Shift+f exec --no-startup-id source ~/.dmenurc && quickswitch.py -d
 # Edit config of running daemon. Seems kludgy but it works.
 bindsym $mod+Ctrl+$alt+T       exec --no-startup-id "sed -i 's/^inactive-opacity = .*$/inactive-opacity = 0.20;/' ~/.config/picom.conf"
 bindsym $mod+Ctrl+$alt+Shift+T exec --no-startup-id "sed -i 's/^inactive-opacity = .*$/inactive-opacity = 1.00;/' ~/.config/picom.conf"
+
+# Temporary Transparency
+# Make window transparent while holding Super+o
+bindsym $mod+o exec --no-startup-id xprop -id $(xdotool getactivewindow) -f _NET_WM_WINDOW_OPACITY 32c -set _NET_WM_WINDOW_OPACITY 0x4fffffff
+# Restore opacity when releasing Super+o
+bindsym --release $mod+o exec --no-startup-id xprop -id $(xdotool getactivewindow) -f _NET_WM_WINDOW_OPACITY 32c -set _NET_WM_WINDOW_OPACITY 0xffffffff
 
 #Touchpad
 bindsym $mod+$alt+T exec --no-startup-id /usr/bin/bash ~/.bashrc.d/touchpad.sh "toggle"
