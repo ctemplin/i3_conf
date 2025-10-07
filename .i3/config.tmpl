@@ -5,7 +5,7 @@
 # semi-colon: scratchpad
 # a: (parent/child) - duplicates p
 # b: borders
-# c: 
+# c: screenshots
 # d: (dmenu)
 # e: (layout)
 # f: (fullscreen), find
@@ -128,6 +128,10 @@ bindsym $mod+$alt+Shift+n exec --no-startup-id dunstctl close-all
 #bindsym Print exec --no-startup-id i3-scrot
 #bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 #bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+bindsym $mod+c exec --no-startup-id i3-scrot
+bindsym $mod+Shift+c --release exec --no-startup-id i3-scrot -w
+bindsym $mod+$alt+Shift+c --release exec --no-startup-id i3-scrot -s
+
 #bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 # i3help https://github.com/glennular/i3help
 bindsym $mod+Shift+h exec i3help
